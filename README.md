@@ -75,6 +75,6 @@ how the file works. It is highly recommended that you leave those
 your application. Set `dev.LOG = true` to enable the `console.log()` messages in
 `init-dev.js`.
 
-BTW: the "`dev`‚Äù prefix refers to "device" in this context, not "develop,"
+BTW: the "`dev`î prefix refers to "device" in this context, not "develop,"
 because it grew out of a desire to build a more reliable and flexible "device
 ready" detector.
