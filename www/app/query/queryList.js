@@ -1,4 +1,4 @@
 angular.module('dqmv')
-.controller('queryListCtrl', ['$scope','$ionicActionSheet','$ionicSideMenuDelegate', function ($scope,$ionicActionSheet,$ionicSideMenuDelegate) {
+.controller('queryListCtrl', ['$scope', function ($scope) {
 
 }]);

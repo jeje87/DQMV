@@ -1,4 +1,4 @@
 angular.module('dqmv')
-.controller('queryContextCtrl', ['$scope','$ionicActionSheet','$ionicSideMenuDelegate', function ($scope,$ionicActionSheet,$ionicSideMenuDelegate) {
+.controller('queryContextCtrl', ['$scope', function ($scope) {
 
 }]);

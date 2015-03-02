@@ -1,0 +1,14 @@
+<ion-header-bar align-title="left" class="bar-positive bar-dark">
+    <h1 class="title ">Queries</h1>
+</ion-header-bar>
+<ion-content>
+    <input type="search" ng-model="q" placeholder="filter queries..." />
+    <ul class="example-animate-container">
+    <ion-list ng-repeat="query in queries | filter:q as results">
+        <ion-item nav-clear menu-close href="#/app/start">{{query.label}}</ion-item>
+    </ion-list>
+    <li class="animate-repeat" ng-if="results.length == 0">
+      <strong>No results found...</strong>
+    </li>
+    </ul>
+</ion-content>
