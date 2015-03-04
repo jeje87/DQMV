@@ -1,6 +1,6 @@
 var app = angular.module('dqmv', ['ionic','ui.router']);
 
-app.controller('firstCtrl',  ['$scope', function($scope)  {
+app.controller('homeCtrl',  ['$scope', function($scope)  {
 
   ionic.Platform.ready(function($scope) {
     //navigator.splashscreen.hide();
@@ -32,43 +32,62 @@ that they each have their own controller and template URL as well. It's also
 really important to note that this page will be accessed at 
 yourapp.com/#/main/home with this structure.
 */
-    .state('main.home', {
-      url:'/home',
+    .state('main.view', {
+      url:'/view',
       views: {
         'left': {
           templateUrl: 'app/query/queryList.html',
           controller: 'queryListCtrl'
         },
         'right': {
-          templateUrl: 'app/query/queryEdit.html',
-          controller: 'queryEditCtrl'
+          templateUrl: 'app/query/queryManage.html',
+          controller: 'queryManageCtrl'
         },
         'main': {
-          templateUrl: 'app/query/query.html',
-          controller: 'queryCtrl'
+          templateUrl: 'app/query/queryView.html',
+          controller: 'queryViewCtrl'
         }
       }
     })
 
-   .state('otherwise', {
-      url:'/main/:menuState',
+
+  .state('main.edit', {
+      url:'/edit',
       views: {
         'left': {
           templateUrl: 'app/query/queryList.html',
           controller: 'queryListCtrl'
         },
         'right': {
-          templateUrl: 'app/query/queryEdit.html',
-          controller: 'queryEditCtrl'
+          templateUrl: 'app/query/queryManage.html',
+          controller: 'queryManageCtrl'
         },
         'main': {
-          templateUrl: 'app/query/query.html',
-          controller: 'queryCtrl'
+          templateUrl: 'app/query/queryEdit.html',
+          controller: 'queryEditCtrl'
         }
       }
-    });
+    })
+
+//   .state('otherwise', {
+//      url:'/main/:menuState',
+//      views: {
+//        'left': {
+//          templateUrl: 'app/query/queryList.html',
+//          controller: 'queryListCtrl'
+//        },
+//        'right': {
+//          templateUrl: 'app/query/queryEdit.html',
+//          controller: 'queryEditCtrl'
+//        },
+//        'main': {
+//          templateUrl: 'app/query/query.html',
+//          controller: 'queryCtrl'
+//        }
+//      }
+//    });
 
  
  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.when('', '/main/home');
+  $urlRouterProvider.when('', '/main/view');
 });

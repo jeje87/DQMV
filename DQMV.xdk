@@ -2,14 +2,12 @@
   "project": {
     "projectSettingsVersion": "1.2",
     "creationData": {
-      "type": "App Designer",
-      "projectTypeName": "com.intel.xdk.projecttype.jsapp",
-      "src": "appDesigner",
+      "projectTypeName": "com.intel.xdk.projecttype.webapp",
+      "src": "https://edge-intel.s3.amazonaws.com/jsapp/production/release-2015-ww07/template-ionic-angularjs-starter/sample.zip",
       "projectGuid": "1c9d8f4c-a20b-4a66-a062-babc8e0c77dc",
       "lastModifiedDate": 1424727396357,
       "creationDate": 1423734464464
     },
-    "XDK-app-designer": "true",
     "sourceDirectory": "www",
     "startFile": "index.html",
     "projectFiles": {},
