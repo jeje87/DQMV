@@ -3,16 +3,16 @@
 </ion-header-bar>
  <ion-content class="has-header">
       <ion-list>
-        <ion-item nav-clear menu-close href="#/main/edit">
+        <ion-item nav-clear menu-close  ui-sref="^.edit({ id: query.id })">
           Edit Query
         </ion-item>
-        <ion-item nav-clear menu-close href="#/main/view">
+        <ion-item nav-clear menu-close ui-sref="^.view({ id: query.id })">
           View Query
         </ion-item>
-        <ion-item nav-clear menu-close href="#/main/edit">
+        <ion-item nav-clear menu-close ui-sref="^.edit({ id: query.id })">
           Add Query
         </ion-item>
-        <ion-item nav-clear menu-close href="#/main/copy">
+        <ion-item nav-clear menu-close ui-sref="^.edit({ id: query.id })">
           Copy Query
         </ion-item>
       </ion-list>

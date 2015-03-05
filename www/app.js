@@ -16,7 +16,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/main',
       abstract: true,
       templateUrl: 'app/templates/side-menus.html',
-      controller: 'mainCtrl'
     })
 
   .state('login', {
