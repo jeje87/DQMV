@@ -2,14 +2,14 @@ angular.module('dqmv')
 .controller('queryListCtrl', ['$scope', function ($scope) {
 
       $scope.queries = [
-          {label:'Query1'},
-          {label:'Query2'},
-          {label:'Query3'},
-          {label:'Query4'},
-          {label:'Query5'},
-          {label:'Query6'},
-          {label:'Query7'},
-          {label:'Query8'},
+          {id:'1',label:'Query1'},
+          {id:'2',label:'Query2'},
+          {id:'3',label:'Query3'},
+          {id:'4',label:'Query4'},
+          {id:'5',label:'Query5'},
+          {id:'6',label:'Query6'},
+          {id:'7',label:'Query7'},
+          {id:'8',label:'Query8'},
         ];
 
 
