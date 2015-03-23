@@ -1,7 +1,21 @@
 <ion-nav-view>
     <ion-view>
-      <ion-content>Query View {{idQuery}} OK
+      <ion-content>
 
+        <table st-table="data" class="table table-striped">
+            <thead>
+            <tr>
+                <th>Dimension</th>
+                <th>Metric</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="row in data.DataFeed[0].Rows">
+                <td>{{row.d_geo_country}}</td>
+                <td>{{row.m_visits}}</td>
+            </tr>
+            </tbody>
+        </table>
 
     </ion-content>
     </ion-view>

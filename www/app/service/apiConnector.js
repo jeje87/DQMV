@@ -1,73 +1,19 @@
-angular.module('myApp').service('clubService', ['$http','$q',
+angular.module('dqmv').service('apiConnector', ['$http','$q',
     function($http,$q) {
 
-        $http.defaults.headers.common.Authorization = 'Basic U3VwZXJBZG1pbjpzYTE4OTc4MTM7'
+        $http.defaults.headers.common.Authorization = 'Basic anBpcXVldEB4aXRpLmNvbTp3cWF6ZXI='
 
         var self = this;
-        self.apiUrl = "http://localhost:8080/api/"
+        self.apiUrl = "https://apirest.atinternet-solutions.com/data/v2/json/getData?&columns={d_geo_country,m_visits}&sort={-m_visits}&space={s:429023}&period={R:{D:'-1'}}&max-results=20";
 
-        self.getClubList = function(page,perPage,search) {
-
-            var request = $http({
-                method: "get",
-                url: self.apiUrl + "clubs",
-                params: {
-                    action: "get",
-                    page: page,
-                    perPage: perPage,
-                    search: search
-                }
-            });
-
-            return( request.then( self.handleSuccess, self.handleError ) );
-        };
-
-        self.getClub = function(club_id) {
+        self.getData = function() {
 
             var request = $http({
                 method: "get",
-                url: self.apiUrl +"clubs/"+club_id,
+                url: self.apiUrl,
                 params: {
-                    action: "get"
                 }
             });
-
-            return( request.then( self.handleSuccess, self.handleError ) );
-        };
-
-        self.getFullImagePath = function(club, image) {
-            return self.apiUrl + "/" + image.path;
-        };
-
-
-        self.saveClub = function(club) {
-
-            var request;
-            if (club._id) {
-                request = $http({
-                    method: "put",
-                    url: self.apiUrl + "clubs/" + club._id,
-                    data: club
-
-                })
-            }
-            else {
-                request = $http({
-                    method: "post",
-                    url: self.apiUrl + "clubs/",
-                    data: club
-                })
-            }
-
-            return( request.then( self.handleSuccess, self.handleError ) );
-        };
-
-        self.deleteClub = function(club) {
-
-            var request = $http({
-                method: "delete",
-                url: self.apiUrl +"clubs/"+club._id
-             });
 
             return( request.then( self.handleSuccess, self.handleError ) );
         };
