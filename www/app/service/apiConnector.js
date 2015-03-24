@@ -4,7 +4,7 @@ angular.module('dqmv').service('apiConnector', ['$http','$q',
         $http.defaults.headers.common.Authorization = 'Basic anBpcXVldEB4aXRpLmNvbTp3cWF6ZXI='
 
         var self = this;
-        self.apiUrl = "https://apirest.atinternet-solutions.com/data/v2/json/getData?&columns={d_geo_country,m_visits}&sort={-m_visits}&space={s:429023}&period={R:{D:'-1'}}&max-results=20";
+        self.apiUrl = "https://apirest.atinternet-solutions.com/data/v2/json/getData?&columns={d_geo_country,m_visits}&sort={-m_visits}&space={s:429023}&period={R:{D:'-1'}}&max-results=10";
 
         self.getData = function() {
 
@@ -14,6 +14,7 @@ angular.module('dqmv').service('apiConnector', ['$http','$q',
                 params: {
                 }
             });
+
 
             return( request.then( self.handleSuccess, self.handleError ) );
         };

@@ -16,14 +16,10 @@ angular.module('dqmv')
     var toArray = function (obj,name,number) {
         if (obj==null)
             return [];
-        var counter=0;
-        return Object.keys(obj).map(function (key) {
-            debugger;
-            counter++;
-            if(counter<number)
-            {return obj[key][name]}
-            else{return}
+        var ret = Object.keys(obj).map(function (key) {
+            return obj[key][name]
         });
+        return ret;
     }
 
 }]);
