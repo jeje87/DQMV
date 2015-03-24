@@ -15,6 +15,7 @@ angular.module('dqmv').service('apiConnector', ['$http','$q',
                 }
             });
 
+
             return( request.then( self.handleSuccess, self.handleError ) );
         };
 
