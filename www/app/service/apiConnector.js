@@ -47,9 +47,25 @@ angular.module('dqmv').service('apiConnector', ['$http','$q',
         // from the API response payload.
         self.handleSuccess = function (response) {
 
-            return( response.data );
+            var ret = {};
+
+            ret.rawData = response.data;
+            ret.rowLabels = toArray(response.data.DataFeed[0].Rows,"d_geo_country");
+            ret.rowValues = toArray(response.data.DataFeed[0].Rows,"m_visits");
+            ret.columns = response.data.DataFeed[0].Columns;
+
+            return ret;
 
         };
+
+        var toArray = function (obj,name) {
+            if (obj==null)
+                return [];
+            var ret = Object.keys(obj).map(function (key) {
+                return obj[key][name]
+            });
+            return ret;
+        }
 
     }
 ]);
