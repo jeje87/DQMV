@@ -17,7 +17,7 @@ angular.module('dqmv')
         if (obj==null)
             return [];
         var counter=0;
-        return Object.keys(obj).map(function (key,counter,number) {
+        return Object.keys(obj).map(function (key) {
             debugger;
             counter++;
             if(counter<number)
