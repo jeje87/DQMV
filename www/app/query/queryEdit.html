@@ -5,13 +5,13 @@
             <div class="list content padding has-header">
               <label class="item item-input item-floating-label">
                 <span class="input-label">Url</span>
-                <input type="text" placeholder="Copy url here">
+                <input type="text" placeholder="Copy your query url here" ng-model="query.url">
               </label>
               <label class="item item-input item-floating-label">
                 <span class="input-label">Name</span>
-                <input type="text" placeholder="And give it a name">
+                <input type="text" placeholder="And give her a name" ng-model="query.name">
               </label>
-            <button class="button button-block button-positive">
+            <button class="button button-block button-positive" ng-click="save()" >
               Save
             </button>
             </div>

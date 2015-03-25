@@ -1,4 +1,4 @@
-var app = angular.module('dqmv', ['ionic','ui.router','smart-table','chart.js']);
+var app = angular.module('dqmv', ['ionic','ui.router','smart-table','chart.js','LocalForageModule','toaster']);
 
 app.controller('homeCtrl',  ['$scope', function($scope)  {
 
