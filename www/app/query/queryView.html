@@ -1,23 +1,25 @@
 <ion-nav-view>
     <ion-view>
-      <ion-content>
+      <ion-content >
 
-        <canvas id="pie" class="chart chart-pie" data="data.rowValues"  labels="data.rowLabels" legend="true"></canvas>
+        <div class="content padding">
+            <canvas id="pie" class="chart chart-pie" data="data.rowValues"  labels="data.rowLabels" legend="true"></canvas>
 
-        <table st-table="data" class="table table-striped">
-            <thead>
-            <tr>
-                <th>{{data.columns[0].Label}}</th>
-                <th>{{data.columns[1].Label}}</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="row in data.rawData.DataFeed[0].Rows">
-                <td>{{row[data.columns[0].Name]}}</td>
-                <td>{{row[data.columns[1].Name]}}</td>
-            </tr>
-            </tbody>
-        </table>
+            <table id="tblData" st-table="data" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>{{data.columns[0].Label}}</th>
+                    <th>{{data.columns[1].Label}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="row in data.rawData.DataFeed[0].Rows">
+                    <td>{{row[data.columns[0].Name]}}</td>
+                    <td>{{row[data.columns[1].Name]}}</td>
+                </tr>
+                </tbody>
+            </table>
+          </div>
 
     </ion-content>
     </ion-view>
