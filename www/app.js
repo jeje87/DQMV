@@ -1,10 +1,14 @@
 var app = angular.module('dqmv', ['ionic','ui.router','smart-table','chart.js','LocalForageModule','toaster']);
 
-app.controller('homeCtrl',  ['$scope', function($scope)  {
+app.controller('homeCtrl',  ['$scope','$rootScope','$localForage', function($scope,$rootScope,$localForage)  {
 
-  ionic.Platform.ready(function($scope) {
+  ionic.Platform.ready(function($scope, $rootScope) {
     //navigator.splashscreen.hide();
+
+
   });
+
+
 
 }]);
 
@@ -32,7 +36,7 @@ really important to note that this page will be accessed at
 yourapp.com/#/main/home with this structure.
 */
     .state('main.view', {
-      url:'/view/:idQuery',
+      url:'/view',
       views: {
         'left': {
           templateUrl: 'app/query/queryList.html',
@@ -88,5 +92,5 @@ yourapp.com/#/main/home with this structure.
 
  
  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.when('', '/main/view/0');
+  $urlRouterProvider.when('', '/main/view');
 });
