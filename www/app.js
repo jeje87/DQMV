@@ -1,6 +1,6 @@
 var app = angular.module('dqmv', ['ionic','ui.router','smart-table','chart.js','LocalForageModule','toaster']);
 
-app.controller('homeCtrl',  ['$scope','$rootScope','$localForage', function($scope,$rootScope,$localForage)  {
+app.controller('homeCtrl',  ['$scope','$rootScope','$localForage','localDataService', function($scope,$rootScope,$localForage,localDataService)  {
 
   ionic.Platform.ready(function($scope, $rootScope) {
     //navigator.splashscreen.hide();

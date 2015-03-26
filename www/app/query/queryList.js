@@ -1,10 +1,8 @@
 angular.module('dqmv').controller('queryListCtrl', ['$scope','localDataService', function ($scope,localDataService) {
 
     $scope.queries={};
-
-     localDataService.getData(function(data) {
-         $scope.queries=data.savedData;
-     });
+    $scope.data = localDataService.data.queries;
+    $scope.queries = localDataService.data.queries;
 
 
 }]);

@@ -1,5 +1,8 @@
 angular.module('dqmv').service('localDataService',['$localForage', function($localForage) {
     var self = this;
+    this.data={"queries":[]};
+
+
     self.getData = function(callback) {
          $localForage.getItem('data').then(function(data) {
                 callback && callback(JSON.parse(data));
@@ -10,4 +13,7 @@ angular.module('dqmv').service('localDataService',['$localForage', function($loc
                 callback && callback();
          });
     };
+
+
+
 }]);
