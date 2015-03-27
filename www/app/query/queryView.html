@@ -1,7 +1,9 @@
 <ion-nav-view>
     <ion-view>
       <ion-content >
-
+        <div class="content">
+          <h5 class="title align-center">{{label}}</h5>
+        </div>
         <div class="content padding">
             <canvas id="pie" class="chart chart-pie" data="data.rowValues"  labels="data.rowLabels" legend="true"></canvas>
 
@@ -19,8 +21,7 @@
                 </tr>
                 </tbody>
             </table>
-          </div>
-
+        </div>
     </ion-content>
     </ion-view>
 </ion-nav-view>
