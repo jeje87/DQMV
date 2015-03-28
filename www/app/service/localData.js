@@ -5,18 +5,13 @@ angular.module('dqmv').service('localDataService',['$localForage', function($loc
 
     self.getData = function(callback) {
          $localForage.getItem('data').then(function(data) {
-             debugger;
-             if(!data) {
-                self.data={"queries":[]};
-             }
-             else {
-                self.data={"queries":[]};
-                var data = JSON.parse(data);
-                data.queries.forEach(function(query) {
-                    self.data.queries.push(query);
-                });
-             }
 
+             var _data={"queries":[]};
+             if(data) {
+                _data = JSON.parse(data);
+
+             }
+             self.data = _data;
 
              callback && callback(self.data);
          });

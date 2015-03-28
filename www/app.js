@@ -2,14 +2,29 @@ var app = angular.module('dqmv', ['ionic','ui.router','smart-table','chart.js','
 
 app.controller('homeCtrl',  ['$scope','$rootScope','localDataService', function($scope,$rootScope,localDataService)  {
 
-  ionic.Platform.ready(function($scope, $rootScope) {
+    $scope.safeApply = function(fn) {
+      var phase = this.$root.$$phase;
+      if(phase == '$apply' || phase == '$digest') {
+        if(fn && (typeof(fn) === 'function')) {
+          fn();
+        }
+      } else {
+        this.$apply(fn);
+      }
+    };
+
+  ionic.Platform.ready(function() {
     //navigator.splashscreen.hide();
-    //localDataService.getData(function(data){alert('ok'); console.log(localDataService.data)});
+    localDataService.getData(function(data){
+        console.log(JSON.stringify(localDataService.data.queries));
+    });
   });
 
 
 
 }]);
+
+
 
 app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider

@@ -4,21 +4,16 @@ angular.module('dqmv')
 
     $scope.query={name:"",url:"",id:0};
 
-    $scope.data = localDataService.data;
-
     $scope.save = function() {
 
         var query = { "name": $scope.query.name, "url": $scope.query.url, "id":generateUUID() };
-        var data;
-
-            if(!$scope.data )
-                $scope.data ={"savedData":{"savedQuery" : []}};
 
         localDataService.data.queries.push(query);
 
-            localDataService.saveData(function() {
-                toaster.pop('success', "title", JSON.stringify(localDataService.data.queries));
-            });
+        localDataService.saveData(function() {
+            console.log(JSON.stringify(localDataService.data.queries));
+            toaster.pop('success', "title", "OK");
+        });
 
 
     }
