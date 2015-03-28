@@ -2,21 +2,16 @@
     <h1 class="title ">Queries</h1>
 </ion-header-bar>
 <ion-content>
-    <button class="button button-positive" ng-click="test()">
-      button-positive
-    </button>
 
-<!--
+
+    <input type="search" ng-model="q" placeholder="filter queries..." />
     <ul class="example-animate-container">
-    <ion-list ng-repeat="query in queries track by query.id">
-        <ion-item nav-clear menu-close ui-sref="^.view({ id: query.id })" >{{query.name}}</ion-item>
+    <ion-list ng-repeat="query in queries  track by query.id ">
+        <ion-item nav-clear menu-close ui-sref="^.view({ idQuery: query.id })" >{{query.name}}</ion-item>
     </ion-list>
-        </ul>
--->
-    <ul>
-    <li ng-repeat="query in queries track by query.id">
-        {{query.name}}
+    <li class="animate-repeat" ng-if="results.length == 0">
+      <strong>No results found...</strong>
     </li>
-
     </ul>
+
 </ion-content>
