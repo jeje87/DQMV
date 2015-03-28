@@ -3,10 +3,9 @@
 </ion-header-bar>
 <ion-content>
 
-
-    <input type="search" ng-model="q" placeholder="filter queries..." />
+    <input type="search" ng-model="q" placeholder="filter queries..." value="" ng-init="onlyFailed=false" />
     <ul class="example-animate-container">
-    <ion-list ng-repeat="query in queries  track by query.id ">
+    <ion-list ng-repeat="query in queries  | filter:{ name: q} as results track by query.id">
         <ion-item nav-clear menu-close ui-sref="^.view({ idQuery: query.id })" >{{query.name}}</ion-item>
     </ion-list>
     <li class="animate-repeat" ng-if="results.length == 0">

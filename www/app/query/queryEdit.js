@@ -10,7 +10,6 @@ angular.module('dqmv')
 
         localDataService.addQuery(query).then(
             function() {
-                console.log(JSON.stringify(localDataService.data.queries));
                 toaster.pop('success', "save", "OK");
             },
             function() {
@@ -19,7 +18,6 @@ angular.module('dqmv')
         );
 
     }
-
 
     var generateUUID= function() {
         var d = new Date().getTime();

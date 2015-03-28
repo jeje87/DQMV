@@ -7,8 +7,6 @@ angular.module('dqmv').service('localDataService',['$localForage', function($loc
     self.addQuery = function(query) {
         self.data.queries.push(query);
         return self.saveData(function() {
-            console.log(JSON.stringify(self.data.queries));
-            //toaster.pop('success', "title", "OK");
         });
     };
 
