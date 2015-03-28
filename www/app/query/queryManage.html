@@ -9,11 +9,14 @@
         <ion-item nav-clear menu-close  ui-sref="^.edit({ id: query.id })">
           Edit
         </ion-item>
-        <ion-item nav-clear menu-close ng-click="test()">
+        <ion-item nav-clear menu-close >
           Copy
         </ion-item>
         <ion-item nav-clear menu-close ui-sref="^.view({ id: query.id })">
-          Delete
+          Back
+        </ion-item>
+        <ion-item nav-clear menu-close ng-click="clearCache()"">
+          Clear Data
         </ion-item>
       </ion-list>
     </ion-content>

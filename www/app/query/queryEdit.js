@@ -8,7 +8,8 @@ angular.module('dqmv')
 
         var query = { "name": $scope.query.name, "url": $scope.query.url, "id":generateUUID() };
 
-        localDataService.data.queries.push(query);
+
+        localDataService.addQuery(query);
 
         localDataService.saveData(function() {
             console.log(JSON.stringify(localDataService.data.queries));

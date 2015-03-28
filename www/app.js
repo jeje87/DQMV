@@ -15,9 +15,7 @@ app.controller('homeCtrl',  ['$scope','$rootScope','localDataService', function(
 
   ionic.Platform.ready(function() {
     //navigator.splashscreen.hide();
-    localDataService.getData(function(data){
-        console.log(JSON.stringify(localDataService.data.queries));
-    });
+
   });
 
 
