@@ -8,14 +8,15 @@ angular.module('dqmv')
 
         var query = { "name": $scope.query.name, "url": $scope.query.url, "id":generateUUID() };
 
-
-        localDataService.addQuery(query);
-
-        localDataService.saveData(function() {
-            console.log(JSON.stringify(localDataService.data.queries));
-            toaster.pop('success', "title", "OK");
-        });
-
+        localDataService.addQuery(query).then(
+            function() {
+                console.log(JSON.stringify(localDataService.data.queries));
+                toaster.pop('success', "save", "OK");
+            },
+            function() {
+                 toaster.pop('error', "save", "Error during save");
+            }
+        );
 
     }
 

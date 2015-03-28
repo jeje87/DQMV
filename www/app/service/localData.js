@@ -6,7 +6,7 @@ angular.module('dqmv').service('localDataService',['$localForage', function($loc
 
     self.addQuery = function(query) {
         self.data.queries.push(query);
-        self.saveData(function() {
+        return self.saveData(function() {
             console.log(JSON.stringify(self.data.queries));
             //toaster.pop('success', "title", "OK");
         });
@@ -31,14 +31,13 @@ angular.module('dqmv').service('localDataService',['$localForage', function($loc
 
     self.saveData = function(callback) {
          return $localForage.setItem('data',JSON.stringify(self.data)).then(function() {
-                callback && callback();
          });
     };
 
      self.clearData = function() {
 
         return $localForage.clear().then(function() {
-            self.data={"queries":[]};
+            self.data.queries.length = 0;
         });
      };
 
