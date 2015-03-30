@@ -1,7 +1,6 @@
 angular.module('dqmv')
 .controller('queryEditCtrl', ['$scope','$rootScope','$localForage','toaster','localDataService', function ($scope,$rootScope,$localForage,toaster,localDataService) {
 
-
     $scope.query={name:"",url:"",id:0};
 
     $scope.save = function() {
