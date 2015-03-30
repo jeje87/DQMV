@@ -6,4 +6,5 @@ angular.module('dqmv').controller('queryListCtrl', ['$scope','localDataService',
        $scope.queries = data.queries;
     })
 
+
 }]);

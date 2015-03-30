@@ -10,6 +10,19 @@ angular.module('dqmv').service('localDataService',['$localForage', function($loc
         });
     };
 
+
+    this.getQueryById = function(id){
+        var _query;
+        self.data.queries.some(function(query) {
+            if(query.id==id) {
+                _query=query;
+                return true;
+            }
+        });
+        return _query;
+
+    };
+
     var newsPromise;
     this.getData = function(){
         if(!newsPromise){

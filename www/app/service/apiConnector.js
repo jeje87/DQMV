@@ -6,11 +6,11 @@ angular.module('dqmv').service('apiConnector', ['$http','$q',
         var self = this;
         self.apiUrl = "https://apirest.atinternet-solutions.com/data/v2/json/getData?&columns={d_geo_country,m_visits}&sort={-m_visits}&space={s:429023}&period={R:{D:'-1'}}&max-results=10";
 
-        self.getData = function() {
+        self.getData = function(query) {
 
             var request = $http({
                 method: "get",
-                url: self.apiUrl,
+                url: query.url,
                 params: {
                 }
             });
@@ -48,10 +48,10 @@ angular.module('dqmv').service('apiConnector', ['$http','$q',
         self.handleSuccess = function (response) {
 
             var ret = {};
-
+debugger;
             ret.rawData = response.data;
-            ret.rowLabels = toArray(response.data.DataFeed[0].Rows,"d_geo_country");
-            ret.rowValues = toArray(response.data.DataFeed[0].Rows,"m_visits");
+            ret.rowLabels = toArray(response.data.DataFeed[0].Rows,response.data.DataFeed[0].Columns[0].Name);
+            ret.rowValues = toArray(response.data.DataFeed[0].Rows,response.data.DataFeed[0].Columns[1].Name);
             ret.columns = response.data.DataFeed[0].Columns;
 
             return ret;

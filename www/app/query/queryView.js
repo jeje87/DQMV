@@ -1,16 +1,30 @@
 angular.module('dqmv')
-.controller('queryViewCtrl', ['$scope','$stateParams','apiConnector', function ($scope,$stateParams,apiConnector) {
+.controller('queryViewCtrl', ['$scope','$stateParams','apiConnector','localDataService', function ($scope,$stateParams,apiConnector,localDataService) {
 
     $scope.idQuery=$stateParams.id;
     $scope.data=[];
-    $scope.label="Query " + $stateParams.id;
 
-    apiConnector.getData().then(
-            function(data) {
 
-                $scope.data=data;
+    $scope.$watch('idQuery',
+        function(newValue, oldValue){
+            console.log('idQuery Changed');
+
+            var query=localDataService.getQueryById($scope.idQuery);
+                if(query) {
+                    $scope.label=query.name;
+                    debugger;
+                    apiConnector.getData(query).then(
+                        function(data) {
+                            $scope.data=data;
+                        }
+                    );
+                }
             }
-        );
+    );
+
+
+
+
 
 
 
