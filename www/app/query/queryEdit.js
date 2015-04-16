@@ -9,6 +9,8 @@ angular.module('dqmv')
 
         localDataService.addQuery(query).then(
             function() {
+                $scope.query.name ="";
+                $scope.query.url ="";
                 toaster.pop('success', "save", "OK");
             },
             function() {

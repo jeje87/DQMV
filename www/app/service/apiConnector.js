@@ -48,9 +48,9 @@ angular.module('dqmv').service('apiConnector', ['$http','$q',
         self.handleSuccess = function (response) {
 
             var ret = {};
-debugger;
+
             ret.rawData = response.data;
-            ret.rowLabels = toArray(response.data.DataFeed[0].Rows,response.data.DataFeed[0].Columns[0].Name);
+            ret.rowLabels = toArray(response.data.DataFeed[0].Rows,response.data.DataFeed[0].Columns[0].Name); //label sur la 1ere colonne
             ret.rowValues = toArray(response.data.DataFeed[0].Rows,response.data.DataFeed[0].Columns[1].Name);
             ret.columns = response.data.DataFeed[0].Columns;
 

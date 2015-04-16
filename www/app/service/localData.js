@@ -20,11 +20,19 @@ angular.module('dqmv').service('localDataService',['$localForage', function($loc
             }
         });
         return _query;
+    };
 
+    this.getFirstQuery = function(){
+        return self.data.queries[0];
+    };
+
+     this.getLastQuery = function(){
+        return self.data.queries[self.data.queries.length-1];
     };
 
     var newsPromise;
     this.getData = function(){
+
         if(!newsPromise){
 
             newsPromise = $localForage.getItem('data').then(function(data) {
@@ -40,12 +48,13 @@ angular.module('dqmv').service('localDataService',['$localForage', function($loc
         return newsPromise;
     };
 
+
     self.saveData = function(callback) {
          return $localForage.setItem('data',JSON.stringify(self.data)).then(function() {
          });
     };
 
-     self.clearData = function() {
+    self.clearData = function() {
 
         return $localForage.clear().then(function() {
             self.data.queries.length = 0;

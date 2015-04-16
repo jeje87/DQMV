@@ -4,28 +4,25 @@ angular.module('dqmv')
     $scope.idQuery=$stateParams.id;
     $scope.data=[];
 
+    $scope.$watch('idQuery',function(newValue, oldValue){
 
-    $scope.$watch('idQuery',
-        function(newValue, oldValue){
-            console.log('idQuery Changed');
+        if(newValue !== "0") {
+            query =localDataService.getQueryById($scope.idQuery);
+        }
+        else
+        {
+             query =localDataService.getFirstQuery();
+        }
 
-            var query=localDataService.getQueryById($scope.idQuery);
-                if(query) {
-                    $scope.label=query.name;
-                    debugger;
-                    apiConnector.getData(query).then(
-                        function(data) {
-                            $scope.data=data;
-                        }
-                    );
-                }
+        if(query) {
+                $scope.label=query.name;
+                apiConnector.getData(query).then(
+                    function(data) {
+                        $scope.data=data;
+                    }
+                );
             }
+        }
     );
-
-
-
-
-
-
 
 }]);

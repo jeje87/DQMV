@@ -10,17 +10,17 @@ angular.module('dqmv').controller('mainCtrl', ['$scope','$ionicActionSheet','$io
           {label:'Query7'},
           {label:'Query8'},
         ];
-     
-     
+
+
 
       $scope.contacts = [];
-     
-     
+
+
       $scope.toggleLeft = function() {
         $ionicSideMenuDelegate.toggleLeft();
       };
-     
- 
+
+
      $scope.manage = function() {
 
        // Show the action sheet
@@ -46,12 +46,12 @@ angular.module('dqmv').controller('mainCtrl', ['$scope','$ionicActionSheet','$io
        }, 2000);
 
      };
-     
+
       $scope.support = function() {
           alert('not implemented');
       };
-     
-     
+
+
       $scope.test = function test() {
           try
           {
@@ -64,7 +64,7 @@ angular.module('dqmv').controller('mainCtrl', ['$scope','$ionicActionSheet','$io
 
               // find contacts
               navigator.contacts.find(fields, function (contacts) {
-                  
+
                   $scope.contacts = contacts;
 
               }, onError, options);
@@ -75,11 +75,11 @@ angular.module('dqmv').controller('mainCtrl', ['$scope','$ionicActionSheet','$io
       };
 
       function onSuccess(contacts) {
-        
+
       }
 
       function onError() {
           alert('Error');
       }
- 
+
  }]);
