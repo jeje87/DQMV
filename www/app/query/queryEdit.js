@@ -1,7 +1,19 @@
 angular.module('dqmv')
-.controller('queryEditCtrl', ['$scope','$rootScope','$localForage','toaster','localDataService', function ($scope,$rootScope,$localForage,toaster,localDataService) {
+.controller('queryEditCtrl', ['$scope','$rootScope','$localForage','$stateParams','toaster','localDataService', function ($scope,$rootScope,$localForage,$stateParams,toaster,localDataService) {
 
+    $scope.idQuery=$stateParams.id;
     $scope.query={name:"",url:"",id:0};
+
+    $scope.query = localDataService.getcurrentQuery;
+
+
+     $scope.$watch(function() {
+             return localDataService.currentQuery;
+        }, function(newValue, oldValue) {
+           if(newValue !== oldValue) {
+                $scope.query = newValue;
+           }
+    });
 
     $scope.save = function() {
 

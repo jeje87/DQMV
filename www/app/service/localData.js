@@ -2,6 +2,7 @@ angular.module('dqmv').service('localDataService',['$localForage', function($loc
 
     var self = this;
     self.data={"queries":[]};
+    self.currentQuery={};
 
 
     self.addQuery = function(query) {
@@ -10,12 +11,22 @@ angular.module('dqmv').service('localDataService',['$localForage', function($loc
         });
     };
 
+    self.getCurrentQuery = function() {
+      return self.currentQuery;
+    }
 
-    this.getQueryById = function(id){
+    self.getData = function() {
+      return self.data;
+    }
+
+
+
+    self.getQueryById = function(id){
         var _query;
         self.data.queries.some(function(query) {
             if(query.id==id) {
                 _query=query;
+                self.currentQuery=_query;
                 return true;
             }
         });
@@ -23,6 +34,7 @@ angular.module('dqmv').service('localDataService',['$localForage', function($loc
     };
 
     this.getFirstQuery = function(){
+        self.currentQuery=self.data.queries[0];
         return self.data.queries[0];
     };
 
@@ -31,7 +43,7 @@ angular.module('dqmv').service('localDataService',['$localForage', function($loc
     };
 
     var newsPromise;
-    this.getData = function(){
+    self.getData = function(){
 
         if(!newsPromise){
 
@@ -42,11 +54,16 @@ angular.module('dqmv').service('localDataService',['$localForage', function($loc
                     _data = JSON.parse(data);
                 }
                 self.data = _data;
+
                 return self.data;
             });
         }
         return newsPromise;
     };
+
+
+
+
 
 
     self.saveData = function(callback) {

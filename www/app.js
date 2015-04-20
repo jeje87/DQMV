@@ -15,6 +15,7 @@ app.controller('homeCtrl',  ['$scope','$rootScope','localDataService', function(
 
   ionic.Platform.ready(function() {
     //navigator.splashscreen.hide();
+    localDataService.getData();
   });
 
 }]);
@@ -62,7 +63,7 @@ yourapp.com/#/main/home with this structure.
 
 
   .state('main.edit', {
-      url:'/edit',
+      url:'/edit/:id',
       views: {
         'left': {
           templateUrl: 'app/query/queryList.html',
