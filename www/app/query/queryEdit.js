@@ -4,16 +4,16 @@ angular.module('dqmv')
     $scope.idQuery=$stateParams.id;
     $scope.query={name:"",url:"",id:0};
 
-    $scope.query = localDataService.getcurrentQuery;
+    $scope.query=localDataService.selectQueryById($scope.idQuery);
 
 
-     $scope.$watch(function() {
-             return localDataService.currentQuery;
-        }, function(newValue, oldValue) {
+    $scope.$watch("idQuery", function(newValue, oldValue) {
+        debugger;
            if(newValue !== oldValue) {
-                $scope.query = newValue;
+                $scope.query=localDataService.selectQueryById($scope.idQuery);
            }
     });
+
 
     $scope.save = function() {
 

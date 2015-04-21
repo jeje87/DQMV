@@ -20,17 +20,26 @@ angular.module('dqmv').service('localDataService',['$localForage', function($loc
     }
 
 
+    self.selectQueryById = function(id){
+        var _query;
+        self.data.queries.some(function(query) {
+            if(query.id==id) {
+                self.currentQuery=query;
+                return true;
+            }
+        });
+        return self.currentQuery;
+    };
 
     self.getQueryById = function(id){
         var _query;
         self.data.queries.some(function(query) {
             if(query.id==id) {
-                _query=query;
-                self.currentQuery=_query;
+                self.currentQuery=query;
                 return true;
             }
         });
-        return _query;
+        return self.currentQuery;
     };
 
     this.getFirstQuery = function(){

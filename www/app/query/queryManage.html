@@ -3,19 +3,19 @@
 </ion-header-bar>
  <ion-content class="has-header">
       <ion-list>
-        <ion-item nav-clear menu-close ui-sref="^.edit({ id: query.id })">
+        <ion-item nav-clear menu-close ui-sref="^.edit({ id: query.idQuery })">
           Add
         </ion-item>
-        <ion-item nav-clear menu-close  ui-sref="^.edit({ id: query.id })">
+        <ion-item nav-clear menu-close ui-sref="^.edit({ id: query.idQuery })" >
           Edit
         </ion-item>
         <ion-item nav-clear menu-close >
           Copy
         </ion-item>
-        <ion-item nav-clear menu-close ui-sref="^.view({ id: query.id })">
+        <ion-item nav-clear menu-close ui-sref="^.view({ id: query.idQuery })">
           Back
         </ion-item>
-        <ion-item nav-clear menu-close ng-click="clearCache()"">
+        <ion-item nav-clear menu-close ng-click="clearCache()">
           Clear Data
         </ion-item>
       </ion-list>
