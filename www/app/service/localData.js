@@ -1,6 +1,7 @@
 angular.module('dqmv').service('localDataService',['$localForage', function($localForage) {
 
     var self = this;
+    var newsPromise;
     self.data={"queries":[]};
     self.currentQuery={};
 
@@ -42,16 +43,16 @@ angular.module('dqmv').service('localDataService',['$localForage', function($loc
         return self.currentQuery;
     };
 
-    this.getFirstQuery = function(){
+    self.getFirstQuery = function(){
         self.currentQuery=self.data.queries[0];
         return self.data.queries[0];
     };
 
-     this.getLastQuery = function(){
+    self.getLastQuery = function(){
         return self.data.queries[self.data.queries.length-1];
     };
 
-    var newsPromise;
+
     self.getData = function(){
 
         if(!newsPromise){

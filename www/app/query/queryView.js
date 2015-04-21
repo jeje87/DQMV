@@ -1,7 +1,6 @@
 angular.module('dqmv')
 .controller('queryViewCtrl', ['$scope','$stateParams','apiConnector','localDataService', function ($scope,$stateParams,apiConnector,localDataService) {
 
-
     $scope.idQuery=$stateParams.id;
     $scope.data=[];
 
