@@ -1,10 +1,10 @@
 <ion-nav-view>
-    <ion-view>
+    <ion-view on-hold="showMenu()">
       <ion-content >
         <div class="content">
           <h5 class="title align-center">{{label}}</h5>
         </div>
-        <div class="content padding">
+        <div class="content padding" >
             <canvas id="pie" class="chart chart-pie" data="data.rowValues"  labels="data.rowLabels" legend="true"></canvas>
 
             <table id="tblData" st-table="data" class="table table-striped">

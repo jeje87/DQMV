@@ -1,5 +1,5 @@
 angular.module('dqmv')
-.controller('queryViewCtrl', ['$scope','$stateParams','apiConnector','localDataService', function ($scope,$stateParams,apiConnector,localDataService) {
+.controller('queryViewCtrl', ['$scope','$stateParams','$ionicActionSheet','apiConnector','localDataService', function ($scope,$stateParams,$ionicActionSheet,apiConnector,localDataService) {
 
     $scope.idQuery=$stateParams.id;
     $scope.data=[];
@@ -14,6 +14,7 @@ angular.module('dqmv')
              query =localDataService.getFirstQuery();
         }
 
+        alert(query);
         if(query) {
                 $scope.label=query.name;
                 apiConnector.getData(query).then(
@@ -24,6 +25,37 @@ angular.module('dqmv')
             }
         }
     );
+
+     // Triggered on a button click, or some other target
+    $scope.showMenu = function() {
+
+       // Show the action sheet
+       var hideSheet = $ionicActionSheet.show({
+         buttons: [
+           { text: 'Add' },
+           { text: 'Edit' },
+           { text: 'Copy' }
+         ],
+         destructiveText: 'Delete',
+         cancelText: 'Cancel',
+         cancel: function() {
+              // add cancel code..
+            },
+         buttonClicked: function(index) {
+             alert(index);
+            return true;
+         },
+         destructiveButtonClicked : function() {
+             alert("destructiveButtonClicked");
+            return true;
+         },
+       });
+
+       // For example's sake, hide the sheet after two seconds
+       $timeout(function() {
+         hideSheet();
+       }, 2000);
+    };
 
 
 

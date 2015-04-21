@@ -3,7 +3,7 @@ angular.module('dqmv').service('localDataService',['$localForage', function($loc
     var self = this;
     var newsPromise;
     self.data={"queries":[]};
-    self.currentQuery={};
+    self.currentQuery=null;
 
 
     self.addQuery = function(query) {
@@ -22,7 +22,6 @@ angular.module('dqmv').service('localDataService',['$localForage', function($loc
 
 
     self.selectQueryById = function(id){
-        var _query;
         self.data.queries.some(function(query) {
             if(query.id==id) {
                 self.currentQuery=query;
