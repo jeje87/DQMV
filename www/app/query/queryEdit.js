@@ -1,5 +1,6 @@
 angular.module('dqmv')
-.controller('queryEditCtrl', ['$scope','$rootScope','$localForage','$stateParams','toaster','localDataService', function ($scope,$rootScope,$localForage,$stateParams,toaster,localDataService) {
+.controller('queryEditCtrl', ['$scope','$rootScope','$localForage','$stateParams','$state','$ionicViewSwitcher','toaster','localDataService',
+                              function ($scope,$rootScope,$localForage,$stateParams,$state,$ionicViewSwitcher,toaster,localDataService) {
 
     $scope.idQuery=$stateParams.id;
     $scope.query={name:"",url:"",id:0};
@@ -29,6 +30,13 @@ angular.module('dqmv')
                  toaster.pop('error', "save", "Error during save");
             }
         );
+
+    }
+
+    $scope.cancel = function() {
+
+        $ionicViewSwitcher.nextDirection('back');
+        $state.go("main.view", {id: $scope.idQuery});
 
     }
 

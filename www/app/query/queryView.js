@@ -1,5 +1,6 @@
 angular.module('dqmv')
-.controller('queryViewCtrl', ['$scope','$stateParams','$ionicActionSheet','apiConnector','localDataService', function ($scope,$stateParams,$ionicActionSheet,apiConnector,localDataService) {
+.controller('queryViewCtrl', ['$scope','$stateParams','$ionicActionSheet','$state','$timeout','$ionicViewSwitcher','apiConnector','localDataService',
+                    function ($scope,$stateParams,$ionicActionSheet,$state,$timeout,$ionicViewSwitcher,apiConnector,localDataService) {
 
     $scope.idQuery=$stateParams.id;
     $scope.data=[];
@@ -14,7 +15,6 @@ angular.module('dqmv')
              query =localDataService.getFirstQuery();
         }
 
-        alert(query);
         if(query) {
                 $scope.label=query.name;
                 apiConnector.getData(query).then(
@@ -42,7 +42,12 @@ angular.module('dqmv')
               // add cancel code..
             },
          buttonClicked: function(index) {
-             alert(index);
+
+             if(index==1) {
+                 //^.edit({ id: idQuery })
+                 //$ionicViewSwitcher.nextDirection('back'); // 'forward', 'back', etc.
+                 $state.go("main.edit", {id: $scope.idQuery});
+             }
             return true;
          },
          destructiveButtonClicked : function() {
@@ -54,7 +59,7 @@ angular.module('dqmv')
        // For example's sake, hide the sheet after two seconds
        $timeout(function() {
          hideSheet();
-       }, 2000);
+       }, 5000);
     };
 
 
