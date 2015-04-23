@@ -15,7 +15,7 @@ app.controller('homeCtrl',  ['$scope','$rootScope','localDataService', function(
 
   ionic.Platform.ready(function() {
     //navigator.splashscreen.hide();
-    localDataService.getData();
+    //localDataService.getData();
   });
 
 }]);
@@ -48,7 +48,12 @@ yourapp.com/#/main/home with this structure.
       views: {
         'left': {
           templateUrl: 'app/query/queryList.html',
-          controller: 'queryListCtrl'
+          controller: 'queryListCtrl',
+          resolve: {
+              data: function(localDataService) {
+                return localDataService.getData()
+              }
+            }
         },
         'right': {
           templateUrl: 'app/query/queryManage.html',
@@ -56,7 +61,17 @@ yourapp.com/#/main/home with this structure.
         },
         'main': {
           templateUrl: 'app/query/queryView.html',
-          controller: 'queryViewCtrl'
+          controller: 'queryViewCtrl',
+          resolve: {
+             query: function($stateParams, localDataService) {
+                 if($stateParams.id!=0) {
+                     return localDataService.getData().then(function() {
+                          return localDataService.getQueryById($stateParams.id);
+                     });
+                }
+                return null;
+              }
+            }
         }
       }
     })
@@ -65,17 +80,19 @@ yourapp.com/#/main/home with this structure.
   .state('main.edit', {
       url:'/edit/:id',
       views: {
-        'left': {
-          templateUrl: 'app/query/queryList.html',
-          controller: 'queryListCtrl'
-        },
-        'right': {
-          templateUrl: 'app/query/queryManage.html',
-          controller: 'queryManageCtrl'
-        },
         'main': {
           templateUrl: 'app/query/queryEdit.html',
-          controller: 'queryEditCtrl'
+          controller: 'queryEditCtrl',
+          resolve: {
+             query: function($stateParams, localDataService) {
+                 if($stateParams.id!=0) {
+                     return localDataService.getData().then(function() {
+                          return localDataService.getQueryById($stateParams.id);
+                     });
+                }
+                return null;
+              }
+            }
         }
       }
     })

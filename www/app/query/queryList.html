@@ -6,7 +6,7 @@
     <input type="search" ng-model="q" placeholder="filter queries..." value="" ng-init="onlyFailed=false" />
     <ul class="example-animate-container">
     <ion-list ng-repeat="query in queries | orderBy:'name'  | filter:{ name: q} as results track by query.id">
-        <ion-item nav-clear menu-close ui-sref="^.view({ id: query.id })" >{{query.name}}</ion-item>
+        <ion-item nav-clear menu-close ui-sref="^.view({id: query.id})" >{{query.name}}</ion-item>
     </ion-list>
     <li class="animate-repeat" ng-if="results.length == 0">
       <strong>No results found...</strong>

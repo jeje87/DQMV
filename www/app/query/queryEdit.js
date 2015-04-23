@@ -1,20 +1,9 @@
 angular.module('dqmv')
-.controller('queryEditCtrl', ['$scope','$rootScope','$localForage','$stateParams','$state','$ionicViewSwitcher','toaster','localDataService',
-                              function ($scope,$rootScope,$localForage,$stateParams,$state,$ionicViewSwitcher,toaster,localDataService) {
+.controller('queryEditCtrl', ['$scope','$rootScope','$localForage','$stateParams','$state','$ionicViewSwitcher','toaster','localDataService','query',
+                              function ($scope,$rootScope,$localForage,$stateParams,$state,$ionicViewSwitcher,toaster,localDataService,query) {
 
     $scope.idQuery=$stateParams.id;
-    $scope.query={name:"",url:"",id:0};
-
-    $scope.query=localDataService.selectQueryById($scope.idQuery);
-
-    $scope.$watch("idQuery", function(newValue, oldValue) {
-           if (newValue =="-1") {
-                $scope.query={name:"",url:"",id:0};
-           }
-           else if(newValue !== oldValue) {
-                $scope.query=localDataService.selectQueryById($scope.idQuery);
-           }
-    });
+    $scope.query=query;
 
     $scope.save = function() {
 
@@ -35,7 +24,7 @@ angular.module('dqmv')
 
     $scope.cancel = function() {
 
-        $ionicViewSwitcher.nextDirection('back');
+        //$ionicViewSwitcher.nextDirection('back');
         $state.go("main.view", {id: $scope.idQuery});
 
     }

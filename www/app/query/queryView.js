@@ -1,30 +1,17 @@
 angular.module('dqmv')
-.controller('queryViewCtrl', ['$scope','$stateParams','$ionicActionSheet','$state','$timeout','$ionicViewSwitcher','apiConnector','localDataService',
-                    function ($scope,$stateParams,$ionicActionSheet,$state,$timeout,$ionicViewSwitcher,apiConnector,localDataService) {
+.controller('queryViewCtrl', ['$scope','$stateParams','$ionicActionSheet','$state','$timeout','$ionicViewSwitcher','apiConnector','localDataService','query',
+                    function ($scope,$stateParams,$ionicActionSheet,$state,$timeout,$ionicViewSwitcher,apiConnector,localDataService,query) {
 
     $scope.idQuery=$stateParams.id;
-    $scope.data=[];
 
-    $scope.$watch('idQuery',function(newValue, oldValue){
-
-        if(newValue !== "0") {
-            query =localDataService.selectQueryById($scope.idQuery);
-        }
-        else
-        {
-             query =localDataService.getFirstQuery();
-        }
-
-        if(query) {
-                $scope.label=query.name;
-                apiConnector.getData(query).then(
-                    function(data) {
-                        $scope.data=data;
-                    }
-                );
+    if($stateParams.id!=0) {
+        $scope.label=query.name;
+        apiConnector.getData(query).then(
+            function(data) {
+                $scope.data=data;
             }
-        }
-    );
+        );
+    }
 
      // Triggered on a button click, or some other target
     $scope.showMenu = function() {

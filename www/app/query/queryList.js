@@ -1,19 +1,6 @@
-angular.module('dqmv').controller('queryListCtrl', ['$scope','localDataService', function ($scope,localDataService) {
+angular.module('dqmv').controller('queryListCtrl', ['$scope','data', function ($scope,data) {
 
     $scope.q="";
-    $scope.queries = localDataService.data.queries;
-
-    $scope.$watch(function() {
-             return localDataService.data.queries;
-        },
-        function(newValue, oldValue) {
-           if(newValue !== oldValue) {
-                $scope.queries = newValue;
-           }
-    });
-
-    $scope.selectQuery = function(id) {
-       localDataService.getQueryById(id);
-    }
+    $scope.queries=data.queries;
 
 }]);

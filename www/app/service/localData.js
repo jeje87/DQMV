@@ -2,7 +2,7 @@ angular.module('dqmv').service('localDataService',['$localForage', function($loc
 
     var self = this;
     var newsPromise;
-    self.data=null;
+    self.data={};
     self.currentQuery=null;
 
 
@@ -32,16 +32,7 @@ angular.module('dqmv').service('localDataService',['$localForage', function($loc
     };
 
     self.getQueryById = function(id){
-        var _query;
 
-        if(!self.data)  {
-
-            var query = self.getData().then(function() {
-                 return self.getQueryById(id);
-            });
-
-        }
-        else {
             self.data.queries.some(function(query) {
                 if(query.id==id) {
                     self.currentQuery=query;
@@ -49,7 +40,10 @@ angular.module('dqmv').service('localDataService',['$localForage', function($loc
                 }
             });
             return self.currentQuery;
-        }
+    };
+
+     self.selectFirstQuery = function(){
+        self.currentQuery=self.data.queries[0];
     };
 
     self.getFirstQuery = function(){
