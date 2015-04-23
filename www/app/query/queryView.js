@@ -30,7 +30,10 @@ angular.module('dqmv')
             },
          buttonClicked: function(index) {
 
-             if(index==1) {
+             if(index==0) {
+                 $state.go("main.edit", {id: -1});
+             }
+             else if(index==1) {
                  //^.edit({ id: idQuery })
                  //$ionicViewSwitcher.nextDirection('back'); // 'forward', 'back', etc.
                  $state.go("main.edit", {id: $scope.idQuery});

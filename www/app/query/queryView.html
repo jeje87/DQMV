@@ -1,5 +1,5 @@
 <ion-nav-view>
-    <ion-view on-hold="showMenu()">
+    <ion-view >
       <ion-content >
         <div class="content">
           <h5 class="title align-center">{{label}}</h5>
@@ -23,5 +23,8 @@
             </table>
         </div>
     </ion-content>
+        <div class="bar bar-footer bar-calm" align-title="center" title="headerTitle">
+             <button class="button icon ion-clock" ng-click="showMenu()"> Manage </button>
+        </div>
     </ion-view>
 </ion-nav-view>
