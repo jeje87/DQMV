@@ -1,12 +1,12 @@
 angular.module('dqmv')
-.controller('queryViewCtrl', ['$scope','$stateParams','$ionicActionSheet','$state','$timeout','$ionicViewSwitcher','apiConnector','localDataService','query',
-                    function ($scope,$stateParams,$ionicActionSheet,$state,$timeout,$ionicViewSwitcher,apiConnector,localDataService,query) {
+.controller('queryViewCtrl', ['$scope','$stateParams','$ionicActionSheet','$state','$timeout','$ionicViewSwitcher','localDataService','query',
+                    function ($scope,$stateParams,$ionicActionSheet,$state,$timeout,$ionicViewSwitcher,localDataService,query) {
 
     $scope.idQuery=$stateParams.id;
 
     if($stateParams.id!=0) {
         $scope.label=query.name;
-        apiConnector.getData(query).then(
+        localDataService.execQuery(query).then(
             function(data) {
                 $scope.data=data;
             }

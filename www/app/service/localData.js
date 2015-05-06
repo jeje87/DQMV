@@ -1,9 +1,15 @@
-angular.module('dqmv').service('localDataService',['$localForage', function($localForage) {
+angular.module('dqmv').service('localDataService',['$localForage','apiConnector', function($localForage,apiConnector) {
 
     var self = this;
     var newsPromise;
     self.data={};
     self.currentQuery=null;
+
+    self.execQuery = function(query) {
+
+       return apiConnector.getData(query);
+
+    };
 
 
     self.addQuery = function(query) {
