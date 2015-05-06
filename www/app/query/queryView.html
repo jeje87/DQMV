@@ -1,5 +1,5 @@
 <ion-nav-view>
-    <ion-view on-hold="showMenu()">
+    <ion-view >
       <ion-content >
         <div class="content">
           <h5 class="title align-center">{{label}}</h5>
@@ -17,11 +17,15 @@
                 <tbody>
                 <tr ng-repeat="row in data.rawData.DataFeed[0].Rows">
                     <td>{{row[data.columns[0].Name]}}</td>
-                    <td>{{row[data.columns[1].Name]}}</td>
+                    <td>{{row[data.columns[1].Name].toFixed(2)}}</td>
                 </tr>
                 </tbody>
             </table>
         </div>
     </ion-content>
+        <div class="bar bar-footer bar-calm" align-title="center" title="headerTitle">
+             <button class="button icon ion-clock" ng-click="showMenu()"> Manage </button>
+        </div>
     </ion-view>
 </ion-nav-view>
+

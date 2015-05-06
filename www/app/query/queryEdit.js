@@ -3,7 +3,10 @@ angular.module('dqmv')
                               function ($scope,$rootScope,$localForage,$stateParams,$state,$ionicViewSwitcher,toaster,localDataService,query) {
 
     $scope.idQuery=$stateParams.id;
-    $scope.query=query;
+    if( $scope.idQuery!=-1)
+    {
+        $scope.query=query;
+    }
 
     $scope.save = function() {
 

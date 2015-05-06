@@ -75,10 +75,6 @@ angular.module('dqmv').service('localDataService',['$localForage', function($loc
     };
 
 
-
-
-
-
     self.saveData = function(callback) {
          return $localForage.setItem('data',JSON.stringify(self.data)).then(function() {
          });
