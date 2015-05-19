@@ -43,3 +43,10 @@ body {
     color: red;
 }
 
+.bar-transparent-2 {
+    border: 0px !important;
+    border-bottom-color: transparent !important;
+    background-image: none;
+    border-bottom: none;
+}
+

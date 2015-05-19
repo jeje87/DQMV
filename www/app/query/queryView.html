@@ -5,7 +5,10 @@
           <h5 class="title align-center">{{label}}</h5>
         </div>
         <div class="content padding" >
+
+            <canvas id="radar" class="chart chart-radar" data="data.rowValues"  labels="data.rowLabels"></canvas>
             <canvas id="pie" class="chart chart-pie" data="data.rowValues"  labels="data.rowLabels" legend="true"></canvas>
+            <canvas id="doughnut" class="chart chart-doughnut" data="data.rowValues"  labels="data.rowLabels" legend="true"></canvas>
 
             <table id="tblData" st-table="data" class="table table-striped">
                 <thead>
@@ -23,8 +26,8 @@
             </table>
         </div>
     </ion-content>
-        <div class="bar bar-footer bar-calm" align-title="center" title="headerTitle">
-             <button class="button icon ion-clock" ng-click="showMenu()"> Manage </button>
+        <div class="bar bar-footer bar-transparent" align-title="right" title="headerTitle">
+             <button class="button icon ion-clock pull-right" ng-click="showMenu()" side="right"> Manage </button>
         </div>
     </ion-view>
 </ion-nav-view>
