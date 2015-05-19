@@ -5,11 +5,5 @@
 /node_modules/
 node_modules
 bower_components
-/plugins/org.apache.cordova.device/.fetch.json
-/.gitignore
-/plugins/android.json
-/plugins/org.apache.cordova.device/src/firefoxos/DeviceProxy.js
-/plugins/org.apache.cordova.splashscreen/src/ios/CDVSplashScreen.h
-/plugins/org.apache.cordova.splashscreen/src/wp/SplashScreen.cs
-/plugins/org.apache.cordova.splashscreen/tests/ios/package.json
-/plugins/org.apache.cordova.splashscreen/tests/ios/CDVSplashScreenTest/CDVSplashScreenLibTests/ImageNameTestDelegates.h
+/plugins/
+plugins
