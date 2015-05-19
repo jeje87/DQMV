@@ -4,6 +4,9 @@
     "currentBuildConfiguration": "Android",
     "projectFiles": {},
     "projectDirectories": {},
-    "initialAutoPluginCount": 0
+    "initialAutoPluginCount": 0,
+    "currentService": {
+      "service": "MarkitOnDemand"
+    }
   }
 }
